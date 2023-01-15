@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/pdf;
+Actions=renamePDFtotitle;
+X-KDE-Priority=TopLevel
+X-KDE-StartupNotify=false
+
+[Desktop Action renamePDFtotitle]
+Icon=edit-rename
+Name=Rename PDF file to its title
+Exec=exiftool '-filename<${title}'.pdf %u
