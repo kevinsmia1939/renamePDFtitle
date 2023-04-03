@@ -9,4 +9,5 @@ X-KDE-StartupNotify=false
 [Desktop Action renamePDFtotitle]
 Icon=edit-rename
 Name=Rename PDF file to its title
+Name[nl]=Bestandsnaam wijzigen naar titel
 Exec=exiftool '-filename<${title}'.pdf %u
