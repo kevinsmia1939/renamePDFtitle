@@ -10,4 +10,4 @@ X-KDE-StartupNotify=false
 Icon=edit-rename
 Name=Rename PDF file to its title
 Name[nl]=Bestandsnaam wijzigen naar titel
-Exec=exiftool '-filename<${title}'.pdf %u
+Exec=bash -c 'FILE="%f"; TITLE=$(pdfinfo "$FILE" | grep "Title:" | sed "s/Title:\\s*//"); if [ -n "$TITLE" ]; then DIR=$(dirname "$FILE"); NEW_NAME="$DIR/$TITLE.pdf"; mv "$FILE" "$NEW_NAME"; else kdialog --error "No title found in PDF metadata"; fi'
