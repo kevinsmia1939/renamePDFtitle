@@ -1,0 +1,20 @@
+# Maintainer: Bruno Goncalves <bigbruno@gmail.com>
+
+pkgname=kde-servicemenus-renamepdftitle
+pkgver=$(date +%Y_%m_%d)
+pkgrel=$(date +%H%M)
+arch=('any')
+license=('GPL')
+url="https://github.com/biglinux/renamePDFtitle"
+pkgdesc="Rename the PDF file to its title, this is addon for Dolphin file manager from KDE."
+depends=('poppler' 'kdialog')
+source=("git+https://github.com/biglinux/renamePDFtitle.git")
+md5sums=(SKIP)
+
+package() {
+	cd "$srcdir/renamePDFtitle"
+	install -Dm644 renamePDFtitle.desktop "$pkgdir/usr/share/kio/servicemenus/renamePDFtitle.desktop"
+	install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+	install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+}
+
